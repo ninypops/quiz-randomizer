@@ -1,23 +1,26 @@
-import logo from './logo.svg';
 import './App.css';
+import Quiz from './components/quiz';
+import quizObj from './constants'; // delete
 
 function App() {
+  // TODO: delete console log
+  console.log(quizObj, 'quizObj');
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
+      <p>
+        Eyup me duck
+      </p>
+      <Quiz />
+      {/* TODO: Add footer
         <a
           className="App-link"
           href="https://reactjs.org"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          made by ninypops
         </a>
-      </header>
+      */}
     </div>
   );
 }
