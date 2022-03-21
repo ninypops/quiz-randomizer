@@ -1,7 +1,7 @@
 const quizObj = [
     {
         "question": "Which of the following best describes JavaScript?",
-        "answer": [
+        "answers": [
             "A scripting language precompiled in the browser.",
             "A compiled scripting language.",
             "An object-oriented scripting language.",
@@ -12,7 +12,7 @@ const quizObj = [
     },
     {
         "question": "Which function is used to serialize an object into a JSON string in Javascript?",
-        "answer": [
+        "answers": [
             "stringify()",
             "parse()",
             "convert()",
@@ -23,7 +23,7 @@ const quizObj = [
     },
     {
         "question": "Which of the following methods can be used to display data in some form using Javascript?",
-        "answer": [
+        "answers": [
             "document.write()",
             "console.log()",
             "window.alert()",
@@ -34,7 +34,7 @@ const quizObj = [
     },
     {
         "question": "When the switch statement matches the expression with the given labels, how is the comparison done?",
-        "answer": [
+        "answers": [
             "Both the datatype and the result of the expression are compared.",
             "Only the datatype of the expression is compared",
             "Only the value of the expression is compared.",
@@ -45,7 +45,7 @@ const quizObj = [
     },
     {
         "question": "Which of the following are closures in Javascript?",
-        "answer": [
+        "answers": [
             "Variables",
             "Functions",
             "Objects",
@@ -56,7 +56,7 @@ const quizObj = [
     },
     {
         "question": "What keyword is used to declare an asynchronous function in Javascript?",
-        "answer": [
+        "answers": [
             "async",
             "await",
             "setTimeout",
@@ -67,7 +67,7 @@ const quizObj = [
     },
     {
         "question": "What does … operator do in JS?",
-        "answer": [
+        "answers": [
             "It is used to spread iterables to individual elements",
             "It is used to describe a datatype of undefined size",
             "No such operator exists",
@@ -78,7 +78,7 @@ const quizObj = [
     },
     {
         "question": "How do we write a comment in javascript?",
-        "answer": [
+        "answers": [
             "/* */",
             "//",
             "#",
@@ -89,7 +89,7 @@ const quizObj = [
     },
     {
         "question": "Which object in Javascript doesn’t have a prototype?",
-        "answer": [
+        "answers": [
             "Base Object",
             "All objects have a prototype",
             "None of the objects have a prototype",
@@ -100,7 +100,7 @@ const quizObj = [
     },
     {
         "question": "Which of the following are not server-side Javascript objects?",
-        "answer": [
+        "answers": [
             "Date",
             "FileUpload",
             "Function",

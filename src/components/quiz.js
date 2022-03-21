@@ -5,9 +5,26 @@ const Quiz = () => (
     <>
         {
             quizObj.map((q, i) => (
-                <p key={i}>
-                    {q.question}
-                </p>
+                // TODO: Wrap in carousel
+                <>
+                    <p key={i}>
+                        {q.question}
+                    </p>
+                    <ul className="test">
+                        {(q.answers).map((a, i) => (
+                            <li key={`${i}_answers`}>
+                                {a}
+                            </li>
+                        ))}
+                    </ul>
+                    <button
+                        type="button"
+                        disabled=""
+                        onClick={() => {console.log('button is clicked')}}
+                    >
+                        Check answer
+                    </button>
+                </>
             ))
         }
     </>
