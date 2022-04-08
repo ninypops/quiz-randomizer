@@ -5,6 +5,7 @@ import quizObj from '../constants';
 const Quiz = () => {
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [showScore, setShowScore] = useState(false);
+    const [showExplanation, setShowExplanation] = useState(false)
 
     // console.log((quizObj[currentQuestion].answers).map(answer => answer.index), "answers");
 
@@ -17,14 +18,19 @@ const Quiz = () => {
         }
 
         console.log(answerIndex, "answer key");
+        // Show answer explanation to user
+        setShowExplanation(true);
+    }
 
+    const loadNextQuestion = () => {
         const nextQuestion = currentQuestion + 1;
         // If next question is less than total no. of questions, update state to next question
         if (nextQuestion < quizObj.length) {
             setCurrentQuestion(nextQuestion);
-
+            setShowExplanation(false);
             // TODO: Add explanation
         } else {
+            alert('you reached the end of the quiz');
             setShowScore(true);
         }
     }
@@ -54,6 +60,22 @@ const Quiz = () => {
                                         {answer}
                                     </button>
                                 ))}
+                                {
+                                    showExplanation && (
+                                        <>
+                                            <p>
+                                                {quizObj[currentQuestion].explanation}
+                                            </p>
+                                            <button
+                                                type="submit"
+                                                disabled=""
+                                                onClick={() => {loadNextQuestion()}}
+                                            >
+                                                Next question
+                                            </button>
+                                        </>
+                                    )
+                                }
                             </div>
                         </>
                     )
