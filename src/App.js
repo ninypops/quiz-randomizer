@@ -4,13 +4,10 @@ import quizObj from './constants'; // delete
 
 function App() {
   // TODO: delete console log
-  console.log(quizObj, 'quizObj');
+  console.log(quizObj[0], 'quizObj');
   return (
     <div className="App">
-      <p>
-        Eyup me duck
-      </p>
-      <Quiz />
+      <Quiz className="App_quiz"/>
       {/* TODO: Add footer
         <a
           className="App-link"
