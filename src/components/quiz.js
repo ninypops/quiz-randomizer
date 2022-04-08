@@ -4,16 +4,28 @@ import quizObj from '../constants';
 
 const Quiz = () => {
     const [currentQuestion, setCurrentQuestion] = useState(0);
+    const [showScore, setShowScore] = useState(false);
+
+    // console.log((quizObj[currentQuestion].answers).map(answer => answer.index), "answers");
 
     // Btn click takes user to next index in obj
-    const handleAnswerButtonClick = (answers) => {
+    const handleAnswerButtonClick = (answerIndex) => {
+        if (quizObj[currentQuestion].correct === answerIndex) {
+            alert("the answer is correct");
+        } else {
+            alert("the answer is wrong");
+        }
+
+        console.log(answerIndex, "answer key");
+
         const nextQuestion = currentQuestion + 1;
         // If next question is less than total no. of questions, update state to next question
         if (nextQuestion < quizObj.length) {
             setCurrentQuestion(nextQuestion);
+
+            // TODO: Add explanation
         } else {
-            // else, add alert when user reaches obj limit so we don't error out
-            alert(`You've reached the end of the quiz!`);
+            setShowScore(true);
         }
     }
 
@@ -21,23 +33,31 @@ const Quiz = () => {
         <div
             className="quiz"
         >
-            <>
-                <p className="quiz__question">
-                    {quizObj[currentQuestion].question}
-                </p>
-                <div className="quiz__answer-section">
-                    {(quizObj[currentQuestion].answers).map((a, i) => (
-                        <button
-                            key={`${i}_answers`}
-                            type="submit"
-                            disabled=""
-                            onClick={() => {handleAnswerButtonClick()}}
-                        >
-                            {a}
-                        </button>
-                    ))}
-                </div>
-            </>
+                {
+                    showScore ? (
+                        <div className='score-section'>
+                        {/* You scored {score} out of {quizObj.length} */}
+                        </div>
+                    ) : (
+                        <>
+                            <p className="quiz__question">
+                                {quizObj[currentQuestion].question}
+                            </p>
+                            <div className="quiz__answer-section">
+                                {(quizObj[currentQuestion].answers).map((answer, answerIndex) => (
+                                    <button
+                                        key={answerIndex}
+                                        type="submit"
+                                        disabled=""
+                                        onClick={() => {handleAnswerButtonClick(answerIndex)}}
+                                    >
+                                        {answer}
+                                    </button>
+                                ))}
+                            </div>
+                        </>
+                    )
+                }
         </div>
     )
 }
