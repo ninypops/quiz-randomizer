@@ -5,9 +5,13 @@ import quizObj from '../constants';
 const Quiz = () => {
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [showScore, setShowScore] = useState(false);
-    const [showExplanation, setShowExplanation] = useState(false)
+    const [showExplanation, setShowExplanation] = useState(false);
 
-    // console.log((quizObj[currentQuestion].answers).map(answer => answer.index), "answers");
+    console.log((quizObj[currentQuestion].answers).map((answer, answerIndex) => answerIndex), "answers");
+    
+    const answeredIndex = quizObj[currentQuestion].answers.map((answer, index) => (index));
+
+    console.log(answeredIndex, "answeredindex");
 
     // Btn click takes user to next index in obj
     const handleAnswerButtonClick = (answerIndex) => {
@@ -17,10 +21,16 @@ const Quiz = () => {
             alert("the answer is wrong");
         }
 
+        console.log(answeredIndex[answerIndex], "answeredindex");
+        console.log(quizObj[currentQuestion].correct === answerIndex, 'y or n');
         console.log(answerIndex, "answer key");
+
         // Show answer explanation to user
         setShowExplanation(true);
     }
+
+    // const indexOfAnswer = (quizObj[currentQuestion].answers).map((answer, answerIndex) => answerIndex);
+    // console.log(indexOfAnswer, "index of answer");
 
     const loadNextQuestion = () => {
         const nextQuestion = currentQuestion + 1;
@@ -37,7 +47,7 @@ const Quiz = () => {
 
     return (
         <div
-            className="quiz"
+            className="quiz__content"
         >
                 {
                     showScore ? (
@@ -46,12 +56,13 @@ const Quiz = () => {
                         </div>
                     ) : (
                         <>
-                            <p className="quiz__question">
+                            <h1 className="quiz__question">
                                 {quizObj[currentQuestion].question}
-                            </p>
-                            <div className="quiz__answer-section">
+                            </h1>
+                            <div className="quiz__answers">
                                 {(quizObj[currentQuestion].answers).map((answer, answerIndex) => (
                                     <button
+                                        className="quiz__answers__btn"
                                         key={answerIndex}
                                         type="submit"
                                         disabled=""
@@ -62,18 +73,25 @@ const Quiz = () => {
                                 ))}
                                 {
                                     showExplanation && (
-                                        <>
+                                        <div className="quiz__explanation">
+                                        {/* TODO: make this work */}
+                                        { answeredIndex[quizObj[currentQuestion].correct] ? (
+                                            <p>yes</p>
+                                            ) : (
+                                            <p>no</p>
+                                        )}
                                             <p>
                                                 {quizObj[currentQuestion].explanation}
                                             </p>
                                             <button
+                                                className="quiz__explanation__btn"
                                                 type="submit"
                                                 disabled=""
                                                 onClick={() => {loadNextQuestion()}}
                                             >
                                                 Next question
                                             </button>
-                                        </>
+                                        </div>
                                     )
                                 }
                             </div>

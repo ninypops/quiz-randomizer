@@ -6,8 +6,8 @@ function App() {
   // TODO: delete console log
   console.log(quizObj[0], 'quizObj');
   return (
-    <div className="App">
-      <Quiz className="App_quiz"/>
+    <div className="quiz">
+      <Quiz />
       {/* TODO: Add footer
         <a
           className="App-link"
